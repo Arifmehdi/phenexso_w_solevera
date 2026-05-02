@@ -180,7 +180,8 @@ Route::get('product/details/{slug}',[FrontendController::class, 'productDetails'
 Route::get('cart',[FrontendController::class, 'cart'])->name('cart');
 Route::get('checkouts',[FrontendController::class, 'checkouts'])->name('frontend.checkout');
 Route::post('add-to-cart',[FrontendController::class, 'addToCart'])->name('addToCart');
-Route::get('/cart/quick-add', [FrontendController::class, 'quickAdd'])->name('cart.quick.add');
+Route::get('/cart/quick/add', [FrontendController::class, 'quickAdd'])->name('cart.quick.add');
+Route::get('/cart/items/html', [FrontendController::class, 'getCartItemsHtml'])->name('cart.items.html');
 
 Route::get('/cart/remove/{id}', [FrontendController::class, 'remove'])->name('cart.remove');
 Route::post('/cart/update', [FrontendController::class, 'update'])->name('cart.update');
@@ -273,9 +274,7 @@ Route::get('/return-policy', function () {
 //     return view('frontend.home.privacy_policy');
 // })->name('privacy-policy');
 
-Route::get('/about-us', function () {
-    return view('frontend.home.about');
-})->name('about-us');
+Route::get('/about-us', [FrontendController::class, 'about'])->name('about-us');
 
 
 Route::get('/get-upazilas/{district_id}', function ($district_id) {

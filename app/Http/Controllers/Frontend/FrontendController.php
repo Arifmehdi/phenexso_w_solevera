@@ -112,7 +112,7 @@ class FrontendController extends Controller
             ->inRandomOrder()
             ->get();
 
-        return view('website.index', $data);
+        return view('website.solevera', $data);
     }
 
     public function allCategories()
@@ -784,10 +784,8 @@ class FrontendController extends Controller
         // Pagination and count
         $products = $query->paginate(12)->appends($request->all());
         $total_products = $query->count();
-
-        return view('website.shop_category', compact(
+        return view('website.shop', compact(
             'products',
-            'category',
             'categories',
             'subcategories',
             'total_products',
@@ -969,6 +967,7 @@ class FrontendController extends Controller
                 'cartCount' => Cart::cartCount(),
                 'cartTotal' => Cart::totalCartPrice(),
                 'cartDropdownHtml' => $this->generateCartDropdownHtml($cartItems),
+                'soleveraCartHtml' => view('website.layouts.solevera_cart_items', compact('cartItems'))->render(),
             ]);
         }
 
@@ -1170,6 +1169,7 @@ class FrontendController extends Controller
 
         // Generate dropdown
         $cartDropdownHtml = $this->generateCartDropdownHtml($cartItems);
+        $soleveraCartHtml = view('website.layouts.solevera_cart_items', compact('cartItems'))->render();
 
         return response()->json([
             'success' => true,
@@ -1192,6 +1192,25 @@ class FrontendController extends Controller
             'cartCount' => Cart::cartCount(),
             'cartTotal' => Cart::totalCartPrice(),
             'cartDropdownHtml' => $cartDropdownHtml,
+            'soleveraCartHtml' => $soleveraCartHtml,
+        ]);
+    }
+
+    public function getCartItemsHtml()
+    {
+        $user_id = Auth::id() ?? 0;
+        $session_id = Session::get('session_id');
+
+        $cartItems = Cart::with('product')
+            ->where('session_id', $session_id)
+            ->when(auth()->check(), function ($query) use ($user_id) {
+                $query->orWhere('user_id', $user_id);
+            })
+            ->get();
+
+        return response()->json([
+            'html' => view('website.layouts.solevera_cart_items', compact('cartItems'))->render(),
+            'cartCount' => Cart::cartCount(),
         ]);
     }
 
