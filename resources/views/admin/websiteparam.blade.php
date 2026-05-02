@@ -217,7 +217,7 @@
                 
                 <!-- about section Start -->
 
-                {{--<div class="row">
+                <div class="row">
                     <div class="col-sm-12">
                         <div class="card card-widget">
                             <div class="card-header with-border">
@@ -270,7 +270,7 @@
                             </div>
                         </div>
                     </div>
-                </div>--}}
+                </div>
 
                 <!-- about section end  -->
 

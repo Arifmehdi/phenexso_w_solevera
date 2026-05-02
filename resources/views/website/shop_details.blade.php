@@ -57,12 +57,13 @@
 											<span class="small">({{ $product->reviews->count() }} Reviews)</span>
 										</div>
 										<div class="elis_rty">
-                                            @if($product->discount_price > 0)
+                                            {{--@if($product->discount_price > 0)
                                             <span class="ft-medium text-muted line-through fs-md me-2">৳{{ $product->price }}</span>
                                             <span class="ft-bold theme-cl fs-lg me-2">৳{{ $product->discount_price }}</span>
                                             @else
                                             <span class="ft-bold theme-cl fs-lg me-2">৳{{ $product->price }}</span>
-                                            @endif
+                                            @endif--}}
+                                            <span class="ft-bold theme-cl fs-lg me-2">৳{{ $product->selling_price }}</span>
                                             <span class="ft-regular text-light bg-success py-1 px-2 fs-sm">In Stock</span>
                                         </div>
 									</div>
@@ -293,11 +294,12 @@
 												<div class="text-center">
 													<h5 class="fw-normal fs-md mb-0 lh-1 mb-1"><a href="{{ route('productDetails', $related->slug) }}">{{ $related->name_en }}</a></h5>
 													<div class="elis_rty">
-                                                        @if($related->discount_price > 0)
+                                                        {{--@if($related->discount_price > 0)
                                                         <span class="ft-medium fs-md text-dark">৳{{ $related->discount_price }}</span>
                                                         @else
                                                         <span class="ft-medium fs-md text-dark">৳{{ $related->price }}</span>
-                                                        @endif
+                                                        @endif--}}
+                                                        <span class="ft-medium fs-md text-dark">৳{{ $related->selling_price }}</span>
                                                     </div>
 												</div>
 											</div>

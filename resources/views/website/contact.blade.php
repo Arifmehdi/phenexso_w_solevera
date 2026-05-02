@@ -24,7 +24,7 @@
 				
 					<div class="row justify-content-center">
 						<div class="col-xl-12 col-lg-12 col-md-12 col-sm-12">
-							<div class="sec_title position-relative text-center">
+							<div class="sec_title position-relative text-center mb-5">
 								<h2 class="off_title">Contact Us</h2>
 								<h3 class="ft-bold pt-3">Get In Touch</h3>
 							</div>
@@ -34,26 +34,26 @@
 					<div class="row align-items-start justify-content-between">
 					
 						<div class="col-xl-4 col-lg-4 col-md-12 col-sm-12">
-							<div class="card-wrap-body mb-4">
+							<div class="card-wrap-body mb-4 gray p-4 rounded">
 								<h4 class="ft-medium mb-3 theme-cl">Address</h4>
-								<p>{{ $ws->office_address }}</p>
-								<p class="lh-1"><span class="text-dark ft-medium">Email:</span> {{ $ws->email }}</p>
+								<p class="mb-2"><i class="fas fa-map-marker-alt me-2"></i>{{ $ws->contact_address }}</p>
+								<p class="lh-1"><i class="fas fa-envelope me-2"></i><span class="text-dark ft-medium">Email:</span> {{ $ws->contact_email }}</p>
 							</div>
 							
-							<div class="card-wrap-body mb-3">
+							<div class="card-wrap-body mb-4 gray p-4 rounded">
 								<h4 class="ft-medium mb-3 theme-cl">Make a Call</h4>
 								<h6 class="ft-medium mb-1">Phone:</h6>
-								<p class="mb-2">{{ $ws->phone }}</p>
+								<p class="mb-2"><i class="fas fa-phone-alt me-2"></i>{{ $ws->contact_mobile }}</p>
                                 @if($ws->phone_alt)
 								<h6 class="ft-medium mb-1">Alternative:</h6>
-								<p>{{ $ws->phone_alt }}</p>
+								<p><i class="fas fa-phone me-2"></i>{{ $ws->phone_alt }}</p>
                                 @endif
 							</div>
 							
-							<div class="card-wrap-body mb-3">
+							<div class="card-wrap-body mb-3 gray p-4 rounded">
 								<h4 class="ft-medium mb-3 theme-cl">Support</h4>
 								<p>Fill out our form and we will contact you within 24 hours.</p>
-								<p class="lh-1 text-dark">{{ $ws->email }}</p>
+								<p class="lh-1 text-dark"><i class="fas fa-headset me-2"></i>{{ $ws->contact_email }}</p>
 							</div>
 						</div>
 						
@@ -90,7 +90,7 @@
 								
 								<div class="col-xl-12 col-lg-12 col-md-12 col-sm-12">
 									<div class="form-group">
-										<button type="submit" class="btn btn-dark">Send Message</button>
+										<button type="submit" class="btn btn-dark full-width">Send Message</button>
 									</div>
 								</div>
 								
@@ -101,9 +101,37 @@
 				</div>
 			</section>
 			<!-- ======================= Contact Page End ======================== -->
+
+            @if($ws->iframe_map)
+            <!-- ======================= Contact Map ======================== -->
+            <section class="p-0">
+                <div class="container-fluid p-0">
+                    <div class="row g-0">
+                        <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12">
+                            <div class="map-container" style="height: 450px; width: 100%; overflow: hidden;">
+                                @if(strpos($ws->iframe_map, '<iframe') !== false)
+                                    {!! $ws->iframe_map !!}
+                                @else
+                                    <iframe src="{{ $ws->iframe_map }}" width="100%" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                                @endif
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <!-- ======================= Contact Map End ======================== -->
+            <style>
+                .map-container iframe {
+                    width: 100% !important;
+                    height: 100% !important;
+                    border: 0;
+                    display: block;
+                }
+            </style>
+            @endif
 			
 			<!-- ============================= Customer Features =============================== -->
-			<section class="px-0 py-3 br-top">
+			{{--<section class="px-0 py-3 br-top">
 				<div class="container">
 					<div class="row">
 						
@@ -157,6 +185,6 @@
 						
 					</div>
 				</div>
-			</section>
+			</section>--}}
 			<!-- ======================= Customer Features ======================== -->
 @endsection

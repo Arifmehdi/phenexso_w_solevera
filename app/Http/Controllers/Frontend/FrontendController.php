@@ -52,17 +52,18 @@ class FrontendController extends Controller
         //     ->get();
         // $data['products'] = Product::whereActive(true)->get();
 
-        // Get all active categories with their products
+        // Get all active parent categories with their products
         $data['categories'] = ProductCategory::where('active', true)
+            ->whereNull('parent_id') // Only parent categories
             ->with(['products' => function ($query) {
                 $query->where('active', true)
-                    ->select('products.id', 'products.name_en', 'products.slug', 'products.featured_image', 'products.price', 'products.discount_price') // Select only needed fields
-                    ->take(8); // Limit products per category
+                    ->select('products.id', 'products.name_en', 'products.slug', 'products.featured_image', 'products.price', 'products.discount_price')
+                    ->take(12); // Max 12 products per category
             }])
             ->whereHas('products', function ($query) { // Only categories that have products
                 $query->where('active', true);
             })
-            ->select('id', 'name_en', 'name_bn', 'slug', 'image') // Select category fields
+            ->select('id', 'name_en', 'name_bn', 'slug', 'image')
             ->get();
 
         // dd($data['categories']);
@@ -260,14 +261,11 @@ class FrontendController extends Controller
 
     public function quickView(Request $request)
     {
-        $product = Product::with('categories')->findOrFail($request->id);
+        $product = Product::with('categories', 'media', 'reviews')->findOrFail($request->id);
 
         return response()->json([
+            'html' => view('website.partials.quick_view', compact('product'))->render(),
             'name' => $product->name_en,
-            'price' => number_format($product->final_price, 2),
-            'old_price' => $product->discount > 0 ? number_format($product->price, 2) : null,
-            'description' => Str::limit($product->description_en, 150),
-            'image' => route('imagecache', ['template' => 'pnism', 'filename' => $product->fi()]),
         ]);
     }
 

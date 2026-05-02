@@ -2,7 +2,7 @@
 
 @section('content')
 			<!-- ======================= Shop Style 1 ======================== -->
-			<section class="bg-cover" style="background:url({{ asset('solevera/assets/img/banner-2.png') }}) no-repeat;">
+			{{--<section class="bg-cover" style="background:url({{ asset('solevera/assets/img/banner-2.png') }}) no-repeat;">
 				<div class="container">
 					<div class="row align-items-center justify-content-center">
 						<div class="col-xl-12 col-lg-12 col-md-12 col-sm-12">
@@ -17,7 +17,7 @@
 						</div>
 					</div>
 				</div>
-			</section>
+			</section>--}}
 			<!-- ======================= Shop Style 1 ======================== -->
 			
 			
@@ -142,7 +142,7 @@
 											<div class="shop_thumb position-relative">
 												<a class="card-img-top d-block overflow-hidden" href="{{ route('productDetails', $product->slug) }}"><img class="card-img-top" src="{{ route('imagecache', ['template'=>'original','filename' => $product->fi()]) }}" alt="..."></a>
 												<div class="product-hover-overlay bg-dark d-flex align-items-center justify-content-center">
-													<div class="edlio"><a href="#" data-bs-toggle="modal" data-bs-target="#quickview" class="text-white fs-sm ft-medium me-2"><i class="fas fa-eye me-1"></i>Quick View</a></div>
+													<div class="edlio"><a href="javascript:void(0);" data-id="{{ $product->id }}" class="text-white fs-sm ft-medium me-2 quick-view-btn"><i class="fas fa-eye me-1"></i>Quick View</a></div>
                                                     <div class="edlio"><a href="javascript:void(0);" data-id="{{ $product->id }}" class="text-white fs-sm ft-medium add-to-cart-btn"><i class="fas fa-shopping-basket me-1"></i>Add to Cart</a></div>
 												</div>
 											</div>
@@ -153,18 +153,19 @@
                                                     <!-- Color variants could be dynamic if model supports it -->
 												</div>
 												<div class="text-right">
-													<button class="btn auto btn_love snackbar-wishlist" data-id="{{ $product->id }}"><i class="far fa-heart"></i></button> 
+													<button class="btn auto btn_love add-to-wishlist" data-id="{{ $product->id }}"><i class="far fa-heart"></i></button> 
 												</div>
 											</div>
 											<div class="text-left">
 												<h5 class="fw-normal fs-md mb-0 lh-1 mb-1"><a href="{{ route('productDetails', $product->slug) }}">{{ $product->name_en }}</a></h5>
 												<div class="elis_rty">
-                                                    @if($product->discount_price > 0)
+                                                    {{--@if($product->discount_price > 0)
                                                     <span class="ft-medium text-dark fs-sm">৳{{ $product->discount_price }}</span>
                                                     <span class="text-muted line-through small">৳{{ $product->price }}</span>
                                                     @else
                                                     <span class="ft-medium text-dark fs-sm">৳{{ $product->price }}</span>
-                                                    @endif
+                                                    @endif--}}
+                                                    <span class="ft-medium text-dark fs-sm">৳{{ $product->selling_price }}</span>
                                                 </div>
 											</div>
 										</div>

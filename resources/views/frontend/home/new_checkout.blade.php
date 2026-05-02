@@ -1,6 +1,6 @@
-@extends('website.layouts.sungoods')
+@extends('website.layouts.solevera')
 
-@section('title', 'Checkout - Sungoods')
+@section('title', 'Checkout - ' .env('APP_NAME'))
 
 @section('content')
 
@@ -29,7 +29,7 @@
             <h1 class="sgc-hero__title">Checkout</h1>
             <!-- Step Tracker -->
             <div class="sgc-steps">
-                <a href="{{ route('cart') }}" class="sgc-step sgc-step--done">
+                <a href="{{ route('new.checkout') }}" class="sgc-step sgc-step--done">
                     <span class="sgc-step__num">01</span>
                     <span class="sgc-step__label">Shopping Cart</span>
                 </a>

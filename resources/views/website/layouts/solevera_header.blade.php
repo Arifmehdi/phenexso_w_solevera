@@ -58,7 +58,108 @@
             @endif --}}
 
             <!-- Start Navigation -->
-			<div class="header {{ Route::is('home') ? 'header-transparent' : 'header-light' }} dark-text">
+            <div class="header {{ Route::is('home') ? 'header-transparent' : 'header-light' }} dark-text">
+                <style>
+                    .header-search-wrap {
+                        flex: 1;
+                        max-width: 500px;
+                        margin: 0 30px;
+                        position: relative;
+                    }
+                    .header-search-form {
+                        position: relative;
+                        width: 100%;
+                    }
+                    .header-search-form input {
+                        width: 100%;
+                        height: 45px;
+                        border: 1px solid #e1e1e1;
+                        border-radius: 30px;
+                        padding: 0 50px 0 20px !important;
+                        outline: none;
+                        transition: all 0.3s;
+                        background: #f9f9f9;
+                    }
+                    .header-search-form input:focus {
+                        background: #fff;
+                        border-color: #151515;
+                        box-shadow: 0 0 10px rgba(0,0,0,0.05);
+                    }
+                    .header-search-form button {
+                        position: absolute;
+                        right: 5px;
+                        top: 5px;
+                        width: 35px;
+                        height: 35px;
+                        border: none;
+                        background: #151515;
+                        color: #fff;
+                        border-radius: 50%;
+                        cursor: pointer;
+                        display: flex;
+                        align-items: center;
+                        justify-content: center;
+                    }
+                    .header-search-results {
+                        position: absolute;
+                        top: 100%;
+                        left: 0;
+                        right: 0;
+                        background: #fff;
+                        z-index: 1000;
+                        border-radius: 10px;
+                        box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+                        margin-top: 10px;
+                        max-height: 400px;
+                        overflow-y: auto;
+                        display: none;
+                    }
+                    .search-item {
+                        display: flex !important;
+                        align-items: center !important;
+                        padding: 10px 15px !important;
+                        border-bottom: 1px solid #f1f1f1 !important;
+                        transition: background 0.2s;
+                    }
+                    .search-item:last-child {
+                        border-bottom: none !important;
+                    }
+                    .search-item:hover {
+                        background: #f9f9f9 !important;
+                        text-decoration: none !important;
+                    }
+                    .search-item img {
+                        width: 50px !important;
+                        height: 50px !important;
+                        object-fit: cover !important;
+                        border-radius: 5px !important;
+                        margin-right: 15px !important;
+                    }
+                    .search-item .info h4 {
+                        font-size: 14px !important;
+                        margin: 0 !important;
+                        color: #151515 !important;
+                        font-weight: 600 !important;
+                    }
+                    .search-item .info span {
+                        font-size: 13px !important;
+                        color: #777 !important;
+                    }
+
+                    @media (max-width: 991px) {
+                        .header-search-wrap {
+                            display: none !important;
+                        }
+                        #mobile-search-bar {
+                            position: absolute;
+                            top: 100%;
+                            left: 0;
+                            right: 0;
+                            width: 100%;
+                            z-index: 999;
+                        }
+                    }
+                </style>
 				<div class="container">
 					<nav id="navigation" class="navigation navigation-landscape">
 						<div class="nav-header">
@@ -73,13 +174,28 @@
 										<i class="lni lni-search-alt"></i>
 									</a>
 								</li>
+								@auth
+								<li class="dropdown">
+									<a href="javascript:void(0);" data-bs-toggle="dropdown">
+										<i class="lni lni-user"></i>
+									</a>
+									<ul class="dropdown-menu">
+										<li><a class="dropdown-item" href="{{ route('user.dashboard') }}"><i class="lni lni-dashboard me-2"></i>Member Panel</a></li>
+										@if(auth()->user()->hasRole('admin'))
+										<li><a class="dropdown-item" href="{{ route('admin.dashboard') }}"><i class="lni lni-user me-2"></i>Admin Panel</a></li>
+										@endif
+										<li><a class="dropdown-item" href="{{ route('logout') }}"><i class="lni lni-log-out me-2"></i>Logout</a></li>
+									</ul>
+								</li>
+								@else
 								<li>
-									<a href="#" data-bs-toggle="modal" data-bs-target="#login">
+									<a href="{{ route('login') }}" >
 										<i class="lni lni-user"></i>
 									</a>
 								</li>
+								@endauth
 								<li>
-									<a href="#" onclick="openWishlist()">
+									<a href="{{ route('wishlist.index') }}">
 										<i class="lni lni-heart"></i><span class="dn-counter">{{ $wishlistCount }}</span>
 									</a>
 								</li>
@@ -110,13 +226,29 @@
 										<i class="lni lni-search-alt"></i>
 									</a>
 								</li>
+								@auth
+								<li class="dropdown">
+									<a href="javascript:void(0);" data-bs-toggle="dropdown">
+										<i class="lni lni-user"></i>
+									</a>
+									<ul class="dropdown-menu">
+										<li><a class="dropdown-item" href="{{ route('user.dashboard') }}"><i class="lni lni-dashboard me-2"></i>Member Panel</a></li>
+										@if(auth()->user()->hasRole('admin'))
+										<li><a class="dropdown-item" href="{{ route('admin.dashboard') }}"><i class="lni lni-user me-2"></i>Admin Panel</a></li>
+										@endif
+										<li><a class="dropdown-item" href="{{ route('logout') }}"><i class="lni lni-log-out me-2"></i>Logout</a></li>
+									</ul>
+								</li>
+								@else
 								<li>
-									<a href="#" data-bs-toggle="modal" data-bs-target="#login">
+									<!-- <a href="#" data-bs-toggle="modal" data-bs-target="#login"> -->
+									<a href="{{ route('login') }}">
 										<i class="lni lni-user"></i>
 									</a>
 								</li>
+								@endauth
 								<li>
-									<a href="#" onclick="openWishlist()">
+									<a href="{{ route('wishlist.index') }}">
 										<i class="lni lni-heart"></i><span class="dn-counter">{{ $wishlistCount }}</span>
 									</a>
 								</li>
