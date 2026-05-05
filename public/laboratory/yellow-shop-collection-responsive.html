@@ -1,0 +1,986 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>YELLOW – Boys Kabli Collection</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=Jost:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --black:#0d0d0d;
+  --white:#ffffff;
+  --cream:#f5f2ed;
+  --accent:#2a8a6b;
+  --accent-light:#3aab87;
+  --gray-light:#e8e4de;
+  --gray-mid:#aaa;
+  --gray-dark:#666;
+  --font-display:'Cormorant Garamond',serif;
+  --font-body:'Jost',sans-serif;
+}
+html{scroll-behavior:smooth}
+body{font-family:var(--font-body);background:var(--white);color:var(--black);overflow-x:hidden}
+
+/* ─── TOP BANNER ─────────────────────────── */
+.top-banner{
+  background:var(--white);
+  text-align:center;
+  padding:7px 20px;
+  font-size:11.5px;
+  letter-spacing:.06em;
+  border-bottom:1px solid var(--gray-light);
+}
+.top-banner a{color:var(--accent);text-decoration:none;font-weight:500}
+
+/* ─── HEADER ─────────────────────────────── */
+header{
+  background:var(--white);
+  border-bottom:1px solid var(--gray-light);
+  position:sticky;top:0;z-index:1000;
+}
+.header-inner{
+  display:flex;align-items:center;justify-content:space-between;
+  padding:0 40px;height:62px;max-width:1440px;margin:0 auto;
+}
+.logo{
+  font-family:var(--font-body);font-size:20px;font-weight:600;
+  letter-spacing:.2em;color:var(--black);text-decoration:none;text-transform:uppercase;
+}
+.header-right{display:flex;align-items:center;gap:18px}
+.search-box{
+  display:flex;align-items:center;border:1px solid var(--black);
+  height:32px;padding:0 12px;gap:8px;
+}
+.search-box input{
+  border:none;outline:none;font-family:var(--font-body);
+  font-size:11.5px;letter-spacing:.04em;width:150px;background:transparent;
+}
+.header-icons{display:flex;align-items:center;gap:2px}
+.header-icon{
+  display:flex;align-items:center;justify-content:center;
+  width:40px;height:40px;
+  cursor:pointer;color:var(--black);text-decoration:none;
+  position:relative;border-radius:2px;transition:background .2s;
+}
+.header-icon:hover{background:var(--gray-light)}
+.icon-label{
+  position:absolute;bottom:-26px;left:50%;transform:translateX(-50%);
+  background:var(--black);color:var(--white);
+  font-size:10px;letter-spacing:.05em;
+  padding:4px 8px;white-space:nowrap;
+  pointer-events:none;opacity:0;
+  transition:opacity .2s;z-index:200;
+}
+.header-icon:hover .icon-label{opacity:1}
+.cart-badge{
+  position:absolute;top:4px;right:4px;
+  background:var(--black);color:var(--white);
+  font-size:9px;width:15px;height:15px;border-radius:50%;
+  display:flex;align-items:center;justify-content:center;
+}
+
+/* ─── NAV ─────────────────────────────────── */
+nav{background:var(--black);position:sticky;top:62px;z-index:990}
+.nav-inner{
+  max-width:1440px;margin:0 auto;
+  display:flex;align-items:center;justify-content:center;
+  height:46px;padding:0 40px;
+}
+.nav-eid{
+  color:var(--accent-light);font-size:12px;
+  letter-spacing:.04em;margin-right:28px;white-space:nowrap;
+}
+.nav-item{position:relative}
+.nav-link{
+  color:rgba(255,255,255,.85);text-decoration:none;
+  font-size:11.5px;font-weight:500;letter-spacing:.13em;text-transform:uppercase;
+  padding:0 18px;height:46px;display:flex;align-items:center;transition:color .2s;
+}
+.nav-link:hover,.nav-link.active{color:var(--accent-light)}
+.mega-menu{
+  position:absolute;top:100%;left:50%;transform:translateX(-50%);
+  background:var(--white);border-top:3px solid var(--accent);
+  min-width:680px;padding:32px 38px;display:none;gap:42px;
+  box-shadow:0 20px 50px rgba(0,0,0,.14);z-index:1200;
+}
+.nav-item:hover .mega-menu{display:flex}
+.mega-col h4{
+  font-size:10px;letter-spacing:.15em;text-transform:uppercase;
+  font-weight:600;color:var(--gray-mid);margin-bottom:14px;
+  border-bottom:1px solid var(--gray-light);padding-bottom:9px;
+}
+.mega-col ul{list-style:none}
+.mega-col ul li{margin-bottom:9px}
+.mega-col ul li a{
+  font-size:12.5px;color:var(--black);text-decoration:none;
+  letter-spacing:.03em;transition:color .2s;
+}
+.mega-col ul li a:hover{color:var(--accent)}
+
+/* ─── PAGE LAYOUT ─────────────────────────── */
+.page-wrap{max-width:1440px;margin:0 auto}
+
+/* ─── FILTER BAR ──────────────────────────── */
+.filter-bar{
+  padding:14px 32px;
+  display:flex;align-items:center;gap:12px;
+  border-bottom:1px solid var(--gray-light);
+}
+.filter-btn{
+  padding:7px 20px;border:1px solid var(--black);background:var(--white);
+  font-family:var(--font-body);font-size:11px;letter-spacing:.1em;
+  text-transform:uppercase;cursor:pointer;transition:all .2s;
+  display:flex;align-items:center;gap:6px;
+}
+.filter-btn:hover,.filter-btn.open{background:var(--black);color:var(--white)}
+.filter-sep{flex:1}
+.sort-wrap{display:flex;align-items:center;gap:8px;font-size:11px;letter-spacing:.05em;color:var(--gray-dark)}
+.sort-select{
+  border:none;border-bottom:1px solid var(--gray-mid);padding:4px 8px 4px 0;
+  font-family:var(--font-body);font-size:11px;letter-spacing:.04em;
+  outline:none;cursor:pointer;background:transparent;color:var(--black);
+}
+
+/* ─── FILTER PANEL (dropdown) ─────────────── */
+.filter-panel{
+  display:none;padding:22px 32px;background:var(--cream);
+  border-bottom:1px solid var(--gray-light);
+  animation:slideDown .25s ease;
+}
+.filter-panel.open{display:flex;gap:48px;flex-wrap:wrap}
+@keyframes slideDown{from{opacity:0;transform:translateY(-8px)}to{opacity:1;transform:translateY(0)}}
+.filter-group h5{
+  font-size:10px;letter-spacing:.14em;text-transform:uppercase;
+  font-weight:600;color:var(--gray-dark);margin-bottom:12px;
+}
+.size-chips{display:flex;gap:7px;flex-wrap:wrap}
+.size-chip{
+  padding:5px 14px;border:1px solid var(--gray-mid);background:var(--white);
+  font-family:var(--font-body);font-size:11px;letter-spacing:.06em;
+  cursor:pointer;transition:all .2s;
+}
+.size-chip:hover,.size-chip.active{background:var(--black);color:var(--white);border-color:var(--black)}
+.price-chips{display:flex;gap:7px;flex-wrap:wrap}
+.price-chip{
+  padding:5px 14px;border:1px solid var(--gray-mid);background:var(--white);
+  font-family:var(--font-body);font-size:11px;cursor:pointer;transition:all .2s;
+  letter-spacing:.04em;
+}
+.price-chip:hover,.price-chip.active{background:var(--black);color:var(--white);border-color:var(--black)}
+
+/* ─── PRODUCT GRID ────────────────────────── */
+.grid-section{padding:28px 32px 64px}
+
+.result-count{
+  font-size:11.5px;color:var(--gray-dark);letter-spacing:.04em;
+  margin-bottom:22px;
+}
+
+.product-grid{
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  gap:0;
+}
+
+/* ─── PRODUCT CARD ────────────────────────── */
+.product-card{
+  padding:0 0 32px 0;
+  cursor:pointer;
+  position:relative;
+  transition:box-shadow .3s;
+}
+.product-card:hover{z-index:2}
+
+.product-img-wrap{
+  position:relative;
+  overflow:hidden;
+  background:#e8eaec;
+  margin-bottom:0;
+  aspect-ratio:3/4.2;
+}
+.product-img-wrap svg{
+  width:100%;height:100%;display:block;
+  transition:transform .65s ease;
+}
+.product-card:hover .product-img-wrap svg{transform:scale(1.04)}
+
+/* Quick actions on hover */
+.quick-actions{
+  position:absolute;bottom:0;left:0;right:0;
+  display:flex;
+  opacity:0;transform:translateY(8px);
+  transition:opacity .3s,transform .3s;
+}
+.product-card:hover .quick-actions{opacity:1;transform:translateY(0)}
+.qa-btn{
+  flex:1;height:38px;border:none;
+  font-family:var(--font-body);font-size:10.5px;letter-spacing:.08em;text-transform:uppercase;
+  cursor:pointer;transition:background .2s;
+  display:flex;align-items:center;justify-content:center;gap:5px;
+}
+.qa-cart{background:rgba(13,13,13,.88);color:var(--white)}
+.qa-cart:hover{background:var(--black)}
+.qa-wish{background:rgba(255,255,255,.9);color:var(--black);width:38px;flex:0 0 38px;border-left:1px solid rgba(0,0,0,.08)}
+.qa-wish:hover{background:var(--white)}
+
+/* Badge */
+.prod-badge{
+  position:absolute;top:10px;left:10px;
+  font-size:9.5px;letter-spacing:.1em;text-transform:uppercase;
+  padding:4px 9px;font-weight:600;z-index:2;
+}
+.badge-new{background:var(--accent);color:var(--white)}
+.badge-sale{background:#c0392b;color:var(--white)}
+.badge-bestseller{background:var(--black);color:var(--white)}
+
+.product-meta{padding:10px 4px 0}
+.product-name{
+  font-size:12px;letter-spacing:.02em;color:var(--black);
+  line-height:1.45;margin-bottom:4px;
+}
+.product-size-range{font-size:10.5px;color:var(--gray-mid);margin-bottom:6px;letter-spacing:.03em}
+.product-price-row{display:flex;align-items:center;gap:8px;margin-bottom:8px}
+.price-now{font-size:13px;font-weight:500;letter-spacing:.02em}
+.price-was{font-size:11px;color:var(--gray-mid);text-decoration:line-through;font-weight:300}
+
+/* Colour swatches */
+.swatch-row{display:flex;gap:5px;flex-wrap:wrap}
+.sw{
+  width:13px;height:13px;border-radius:50%;
+  border:1.5px solid rgba(0,0,0,.12);cursor:pointer;
+  transition:transform .2s,outline .2s;
+}
+.sw:hover,.sw.active{outline:1.5px solid var(--black);outline-offset:2px}
+
+/* ─── PAGINATION ──────────────────────────── */
+.pagination{
+  display:flex;justify-content:center;align-items:center;
+  gap:5px;padding:12px 0 56px;
+}
+.pg{
+  width:34px;height:34px;border:1px solid var(--gray-light);background:var(--white);
+  font-family:var(--font-body);font-size:11.5px;cursor:pointer;
+  display:flex;align-items:center;justify-content:center;transition:all .2s;
+}
+.pg:hover,.pg.active{background:var(--black);color:var(--white);border-color:var(--black)}
+
+/* ─── FOOTER ──────────────────────────────── */
+footer{background:var(--black);color:rgba(255,255,255,.65);padding:48px 40px 28px}
+.footer-grid{
+  max-width:1440px;margin:0 auto;
+  display:grid;grid-template-columns:2fr 1.2fr 1.2fr 1.6fr;gap:40px;
+  padding-bottom:36px;border-bottom:1px solid rgba(255,255,255,.09);margin-bottom:22px;
+}
+.footer-logo{color:var(--white);font-family:var(--font-body);font-size:18px;font-weight:600;letter-spacing:.2em;display:block;margin-bottom:14px;text-decoration:none}
+.footer-brand p{font-size:11.5px;line-height:1.9;color:rgba(255,255,255,.45)}
+.footer-social{display:flex;gap:10px;margin-top:18px}
+.soc{
+  width:32px;height:32px;border:1px solid rgba(255,255,255,.22);
+  display:flex;align-items:center;justify-content:center;cursor:pointer;
+  font-size:12px;color:rgba(255,255,255,.55);text-decoration:none;
+  transition:all .2s;
+}
+.soc:hover{border-color:var(--accent-light);color:var(--accent-light)}
+.footer-col h5{font-size:10px;letter-spacing:.18em;text-transform:uppercase;font-weight:600;color:var(--white);margin-bottom:15px}
+.footer-col ul{list-style:none}
+.footer-col ul li{margin-bottom:9px}
+.footer-col ul li a{font-size:11.5px;color:rgba(255,255,255,.5);text-decoration:none;letter-spacing:.03em;transition:color .2s}
+.footer-col ul li a:hover{color:var(--accent-light)}
+.footer-contact p{font-size:11.5px;line-height:1.9;color:rgba(255,255,255,.5)}
+.footer-bottom{max-width:1440px;margin:0 auto;display:flex;justify-content:space-between;font-size:10.5px;color:rgba(255,255,255,.3);letter-spacing:.04em;flex-wrap:wrap;gap:8px}
+
+/* ─── TOAST ───────────────────────────────── */
+.toast{
+  position:fixed;bottom:32px;left:50%;transform:translateX(-50%) translateY(20px);
+  background:var(--black);color:var(--white);padding:12px 28px;
+  font-size:12px;letter-spacing:.06em;opacity:0;transition:all .4s;
+  pointer-events:none;z-index:9999;white-space:nowrap;
+}
+.toast.show{opacity:1;transform:translateX(-50%) translateY(0)}
+
+/* ═══════════════════════════════════════════════
+   FULL RESPONSIVE SYSTEM — ALL BREAKPOINTS
+═══════════════════════════════════════════════ */
+
+/* ─── HAMBURGER ─── */
+.hamburger{display:none;flex-direction:column;gap:5px;background:none;border:none;cursor:pointer;padding:6px;z-index:1100}
+.hamburger span{display:block;width:22px;height:2px;background:var(--black);transition:all .3s}
+.hamburger.open span:nth-child(1){transform:translateY(7px) rotate(45deg)}
+.hamburger.open span:nth-child(2){opacity:0}
+.hamburger.open span:nth-child(3){transform:translateY(-7px) rotate(-45deg)}
+
+/* ─── MOBILE DRAWER ─── */
+.mobile-drawer{display:none;position:fixed;top:0;left:0;right:0;bottom:0;background:var(--white);z-index:1050;overflow-y:auto;padding:70px 24px 40px;transform:translateX(-100%);transition:transform .35s cubic-bezier(.4,0,.2,1)}
+.mobile-drawer.open{transform:translateX(0);display:block}
+.mob-overlay{display:none;position:fixed;inset:0;background:rgba(0,0,0,.4);z-index:1040}
+.mob-overlay.open{display:block}
+.mob-search-box{display:flex;align-items:center;border:1px solid var(--black);height:42px;padding:0 14px;gap:10px;margin-bottom:20px}
+.mob-search-box input{border:none;outline:none;font-family:var(--font-body);font-size:13px;width:100%;background:transparent}
+.mob-nav-item{border-bottom:1px solid var(--gray-light)}
+.mob-nav-link{display:flex;align-items:center;justify-content:space-between;padding:15px 0;font-size:14px;font-weight:500;letter-spacing:.1em;text-transform:uppercase;color:var(--black);text-decoration:none;cursor:pointer;background:none;border:none;width:100%;text-align:left;font-family:var(--font-body)}
+.mob-sub{display:none;padding:6px 0 14px}
+.mob-sub.open{display:block}
+.mob-sub a{display:block;padding:7px 12px;font-size:13px;color:var(--gray-dark);text-decoration:none}
+.mob-sub h4{font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:var(--gray-mid);padding:10px 12px 4px;font-weight:600}
+.mob-header-actions{margin-top:24px;display:flex;flex-direction:column;gap:14px}
+.mob-action-link{display:flex;align-items:center;gap:10px;font-size:13px;color:var(--black);text-decoration:none;letter-spacing:.04em}
+
+/* ─── TABLET: ≤1100px ─── */
+@media(max-width:1100px){
+  .product-grid{grid-template-columns:repeat(3,1fr)}
+  .nav-eid{display:none}
+  .footer-grid{grid-template-columns:1fr 1fr}
+}
+
+/* ─── TABLET: ≤900px ─── */
+@media(max-width:900px){
+  /* Header — hamburger LEFT | logo CENTER | icons RIGHT */
+  .header-inner{
+    padding:0 14px;height:56px;
+    display:grid;
+    grid-template-columns:44px 1fr 132px;
+    align-items:center;
+  }
+  .hamburger{display:flex;justify-self:start}
+  .logo{justify-self:center;text-align:center}
+  .header-right{justify-self:end;display:flex;align-items:center}
+  .search-box{display:none!important}
+  .header-icons{gap:0;display:flex}
+  .header-icons .header-icon{display:flex}
+  nav{display:none}
+  .product-grid{grid-template-columns:repeat(2,1fr)}
+  .filter-bar{padding:10px 16px;flex-wrap:wrap;gap:8px}
+  .grid-section{padding:20px 16px 48px}
+  .footer-grid{grid-template-columns:1fr 1fr;gap:24px}
+  footer{padding:36px 20px 24px}
+}
+
+/* ─── MOBILE: ≤600px ─── */
+@media(max-width:600px){
+  .top-banner{font-size:10.5px;padding:6px 12px}
+  .header-inner{padding:0 10px;height:52px;grid-template-columns:40px 1fr 124px}
+  .logo{font-size:16px;letter-spacing:.14em;justify-self:center}
+  .header-icons .header-icon{width:36px;height:36px}
+  .product-grid{grid-template-columns:repeat(2,1fr);gap:0}
+  .grid-section{padding:12px 8px 36px}
+  .result-count{font-size:10.5px;margin-bottom:12px}
+  .filter-bar{padding:8px 8px;gap:6px}
+  .filter-btn{padding:5px 10px;font-size:9.5px}
+  .sort-wrap{flex-wrap:wrap;justify-content:flex-end}
+  .sort-select{font-size:10px}
+  .product-name{font-size:11px}
+  .price-now{font-size:12px}
+  .product-meta{padding:8px 3px 0}
+  .quick-actions{display:none}
+  .footer-grid{grid-template-columns:1fr;gap:20px}
+  footer{padding:28px 14px 20px}
+  .footer-bottom{flex-direction:column;gap:6px;text-align:center}
+  .pagination{gap:4px;padding:10px 0 40px}
+  .pg{width:30px;height:30px;font-size:10.5px}
+}
+
+/* ─── VERY SMALL: ≤380px ─── */
+@media(max-width:380px){
+  .logo{font-size:14px}
+  .product-grid{gap:0}
+  .filter-btn{padding:4px 8px;font-size:9px}
+}
+
+/* ─── CARD STAGGER ANIMATION ──────────────── */
+@keyframes fadeUp{
+  from{opacity:0;transform:translateY(18px)}
+  to{opacity:1;transform:translateY(0)}
+}
+.product-card{
+  opacity:0;
+  animation:fadeUp .5s ease forwards;
+}
+</style>
+</head>
+<body>
+
+<div class="mob-overlay" id="mobOverlay" onclick="closeMobileMenu()"></div>
+<div class="mobile-drawer" id="mobileDrawer">
+  <div class="mob-search-box">
+    <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg>
+    <input type="text" placeholder="Search products...">
+  </div>
+  <div class="mob-nav-item">
+    <button class="mob-nav-link" onclick="toggleMobSub('men')">MEN <span>+</span></button>
+    <div class="mob-sub" id="mob-men">
+      <h4>Ethnic Wear</h4><a href="#">Panjabis</a><a href="#">Kabli Sets</a><a href="#">Sherwani</a>
+      <h4>Western Wear</h4><a href="#">T-Shirts</a><a href="#">Polo Shirts</a>
+    </div>
+  </div>
+  <div class="mob-nav-item">
+    <button class="mob-nav-link" onclick="toggleMobSub('women')">WOMEN <span>+</span></button>
+    <div class="mob-sub" id="mob-women">
+      <h4>Western Wear</h4><a href="#">Tops</a><a href="#">Dresses</a>
+      <h4>Ethnic</h4><a href="#">Kurtis</a><a href="#">Lawn Sets</a>
+    </div>
+  </div>
+  <div class="mob-nav-item">
+    <button class="mob-nav-link" onclick="toggleMobSub('kids')">KIDS <span>+</span></button>
+    <div class="mob-sub" id="mob-kids">
+      <h4>Boys</h4><a href="#">Kabli Sets</a><a href="#">Panjabis</a><a href="#">Festive Sets</a>
+      <h4>Girls</h4><a href="#">Frocks</a><a href="#">Ethnic Sets</a>
+    </div>
+  </div>
+  <div class="mob-nav-item"><a class="mob-nav-link" href="#">MINI-ME</a></div>
+  <div class="mob-nav-item"><a class="mob-nav-link" href="#">HOME</a></div>
+  <div class="mob-header-actions">
+    <a href="#" class="mob-action-link">
+      <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 0 1-8 0"/></svg>
+      Shopping Cart
+    </a>
+    <a href="#" class="mob-action-link">
+      <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
+      My Wish List
+    </a>
+    <a href="#" class="mob-action-link">Sign In or Create Account</a>
+  </div>
+</div>
+
+<!-- TOAST -->
+<div class="toast" id="toast"></div>
+
+<!-- TOP BANNER -->
+<div class="top-banner">
+  <a href="#">Free and flexible 15-day exchange</a>
+</div>
+
+<!-- HEADER -->
+<header>
+  <div class="header-inner">
+    <button class="hamburger" id="hamburger" onclick="openMobileMenu()" aria-label="Menu">
+      <span></span><span></span><span></span>
+    </button>
+    <a href="#" class="logo">YELLOW</a>
+    <div class="header-right">
+      <div class="search-box">
+        <svg width="13" height="13" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg>
+        <input type="text" placeholder="Search">
+      </div>
+      <div class="header-icons">
+        <a href="#" class="header-icon" aria-label="Shopping Cart">
+          <svg width="17" height="17" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 0 1-8 0"/></svg>
+          <span class="cart-badge" id="cartCount">0</span>
+          <span class="icon-label">Cart</span>
+        </a>
+        <a href="#" class="header-icon" aria-label="My Wish List">
+          <svg width="17" height="17" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
+          <span class="icon-label">Wish List</span>
+        </a>
+        <a href="#" class="header-icon" aria-label="Sign In">
+          <svg width="17" height="17" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+          <span class="icon-label">Sign In</span>
+        </a>
+      </div>
+    </div>
+  </div>
+</header>
+
+<!-- NAV -->
+<nav>
+  <div class="nav-inner">
+    <span class="nav-eid">ঈদুল আজহা ২০২৬ • EID-UL-ADHA • عيد الأضحى</span>
+
+    <div class="nav-item">
+      <a href="#" class="nav-link">MEN</a>
+      <div class="mega-menu">
+        <div class="mega-col">
+          <h4>Ethnic Wear</h4>
+          <ul><li><a href="#">Panjabis</a></li><li><a href="#">Kabli Sets</a></li><li><a href="#">Sherwani</a></li><li><a href="#">Fatua</a></li><li><a href="#">Festive Sets</a></li></ul>
+        </div>
+        <div class="mega-col">
+          <h4>Western Wear</h4>
+          <ul><li><a href="#">T-Shirts</a></li><li><a href="#">Polo Shirts</a></li><li><a href="#">Jeans & Trousers</a></li><li><a href="#">Casual Shirts</a></li></ul>
+        </div>
+        <div class="mega-col">
+          <h4>Accessories</h4>
+          <ul><li><a href="#">Belts</a></li><li><a href="#">Wallets</a></li><li><a href="#">Caps</a></li></ul>
+        </div>
+      </div>
+    </div>
+
+    <div class="nav-item">
+      <a href="#" class="nav-link">WOMEN</a>
+      <div class="mega-menu">
+        <div class="mega-col">
+          <h4>Western Wear</h4>
+          <ul><li><a href="#">Fashion Tops And Casual Shirts</a></li><li><a href="#">Long Dresses</a></li><li><a href="#">Mystika Collection</a></li><li><a href="#">Bling Collection</a></li><li><a href="#">T-Shirts</a></li><li><a href="#">Jeans</a></li><li><a href="#">Pants</a></li><li><a href="#">Tank Tops</a></li></ul>
+        </div>
+        <div class="mega-col">
+          <h4>Ethnic Wear</h4>
+          <ul><li><a href="#">Ethnic Kurtis And Kurtas</a></li><li><a href="#">Ethnic Sets</a></li><li><a href="#">Lawn Kurtis And Kurtas</a></li><li><a href="#">Two-Piece Lawns</a></li><li><a href="#">Three-Piece Lawns</a></li><li><a href="#">Ethnic Pants</a></li><li><a href="#">Sarees</a></li></ul>
+        </div>
+        <div class="mega-col">
+          <h4>Accessories</h4>
+          <ul><li><a href="#">Belts</a></li><li><a href="#">Tote Bags</a></li></ul>
+        </div>
+      </div>
+    </div>
+
+    <div class="nav-item">
+      <a href="#" class="nav-link active">KIDS</a>
+      <div class="mega-menu">
+        <div class="mega-col">
+          <h4>Boys</h4>
+          <ul><li><a href="#" style="color:var(--accent);font-weight:500">Kabli Sets</a></li><li><a href="#">Panjabis</a></li><li><a href="#">Festive Sets</a></li><li><a href="#">T-Shirts</a></li><li><a href="#">Jeans</a></li></ul>
+        </div>
+        <div class="mega-col">
+          <h4>Girls</h4>
+          <ul><li><a href="#">Frocks</a></li><li><a href="#">Ethnic Sets</a></li><li><a href="#">T-Shirts</a></li><li><a href="#">Jeans</a></li></ul>
+        </div>
+        <div class="mega-col">
+          <h4>Newborn</h4>
+          <ul><li><a href="#">Sets</a></li><li><a href="#">Rompers</a></li></ul>
+        </div>
+      </div>
+    </div>
+
+    <div class="nav-item"><a href="#" class="nav-link">MINI-ME</a></div>
+    <div class="nav-item"><a href="#" class="nav-link">HOME</a></div>
+  </div>
+</nav>
+
+<!-- PAGE WRAP -->
+<div class="page-wrap">
+
+  <!-- FILTER BAR -->
+  <div class="filter-bar">
+    <button class="filter-btn" id="sizeFilterBtn" onclick="toggleFilter('size')">
+      <svg width="11" height="11" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><line x1="4" y1="6" x2="20" y2="6"/><line x1="8" y1="12" x2="16" y2="12"/><line x1="11" y1="18" x2="13" y2="18"/></svg>
+      SIZE
+    </button>
+    <button class="filter-btn" id="priceFilterBtn" onclick="toggleFilter('price')">
+      <svg width="11" height="11" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><line x1="4" y1="6" x2="20" y2="6"/><line x1="8" y1="12" x2="16" y2="12"/><line x1="11" y1="18" x2="13" y2="18"/></svg>
+      PRICE
+    </button>
+    <div class="filter-sep"></div>
+    <div class="sort-wrap">
+      <span>Sort By:</span>
+      <select class="sort-select" onchange="sortProducts(this.value)">
+        <option value="default">Position, Best Match</option>
+        <option value="price-asc">Price: Low to High</option>
+        <option value="price-desc">Price: High to Low</option>
+        <option value="newest">Newest First</option>
+      </select>
+    </div>
+  </div>
+
+  <!-- SIZE FILTER PANEL -->
+  <div class="filter-panel" id="filterSize">
+    <div class="filter-group">
+      <h5>Age / Size</h5>
+      <div class="size-chips">
+        <button class="size-chip" onclick="filterBySize(this,'1-2Y')">1–2 Years</button>
+        <button class="size-chip active" onclick="filterBySize(this,'all')">All</button>
+        <button class="size-chip" onclick="filterBySize(this,'2-3Y')">2–3 Years</button>
+        <button class="size-chip" onclick="filterBySize(this,'3-4Y')">3–4 Years</button>
+        <button class="size-chip" onclick="filterBySize(this,'4-5Y')">4–5 Years</button>
+        <button class="size-chip" onclick="filterBySize(this,'5-6Y')">5–6 Years</button>
+        <button class="size-chip" onclick="filterBySize(this,'6-7Y')">6–7 Years</button>
+        <button class="size-chip" onclick="filterBySize(this,'7-8Y')">7–8 Years</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- PRICE FILTER PANEL -->
+  <div class="filter-panel" id="filterPrice">
+    <div class="filter-group">
+      <h5>Price Range (৳)</h5>
+      <div class="price-chips">
+        <button class="price-chip active" onclick="filterByPrice(this,0,99999)">All</button>
+        <button class="price-chip" onclick="filterByPrice(this,0,2999)">Under ৳3,000</button>
+        <button class="price-chip" onclick="filterByPrice(this,3000,3999)">৳3,000 – ৳3,999</button>
+        <button class="price-chip" onclick="filterByPrice(this,4000,4999)">৳4,000 – ৳4,999</button>
+        <button class="price-chip" onclick="filterByPrice(this,5000,99999)">৳5,000+</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- GRID -->
+  <div class="grid-section">
+    <div class="result-count" id="resultCount">Showing 32 items</div>
+    <div class="product-grid" id="productGrid"></div>
+    <div class="pagination" id="pagination">
+      <button class="pg active">1</button>
+      <button class="pg">2</button>
+      <button class="pg">3</button>
+      <button class="pg">›</button>
+    </div>
+  </div>
+
+</div><!-- /page-wrap -->
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-grid">
+    <div class="footer-brand">
+      <a href="#" class="footer-logo">YELLOW</a>
+      <p>YELLOW exists to deliver premium-quality and contemporary designs for style-conscious urbanites. The brand name reflects warmth, loyalty, and long-lasting connections.</p>
+      <div class="footer-social">
+        <a href="#" class="soc">f</a>
+        <a href="#" class="soc">in</a>
+        <a href="#" class="soc">▶</a>
+      </div>
+    </div>
+    <div class="footer-col">
+      <h5>Information</h5>
+      <ul>
+        <li><a href="#">About YELLOW</a></li>
+        <li><a href="#">Store Locator</a></li>
+        <li><a href="#">Community Guidelines</a></li>
+        <li><a href="#">Contact Us</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h5>Policies</h5>
+      <ul>
+        <li><a href="#">Delivery Policy</a></li>
+        <li><a href="#">Exchange Policy</a></li>
+        <li><a href="#">Return Policy</a></li>
+        <li><a href="#">Privacy Policy</a></li>
+        <li><a href="#">Safety Advisory</a></li>
+      </ul>
+    </div>
+    <div class="footer-col footer-contact">
+      <h5>Customer Service</h5>
+      <p>SUNDAY–THURSDAY<br>09:00 AM–5:00 PM</p>
+      <p style="margin-top:10px">Customerservice@yellowclothing.net</p>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <span>© 2026 Yellow Clothing Ltd | All Rights Reserved.</span>
+  </div>
+</footer>
+
+<script>
+/* ═══════════════════════════════════════════════════
+   PRODUCT DATA  –  32 Boys Kabli cards
+═══════════════════════════════════════════════════ */
+const PRODUCTS = [
+  // Row 1
+  {id:1,  name:"Boys Kabli", range:"3–7 Years", price:3490,  colors:["#233a50","#374f66"],     bgTop:"#b8ccd8", bgBot:"#94afc0", badge:null},
+  {id:2,  name:"Boys Kabli", range:"3–7 Years", price:3490,  colors:["#3b2060","#5a3490"],     bgTop:"#c4b4d0", bgBot:"#a896bc", badge:null},
+  {id:3,  name:"Boys Kabli", range:"3–7 Years", price:3490,  colors:["#9cb89a","#7a9c78"],     bgTop:"#bcd4b8", bgBot:"#9abca0", badge:null},
+  {id:4,  name:"Boys Kabli", range:"3–7 Years", price:3490,  colors:["#9fbe9e","#80a47e"],     bgTop:"#c4dac2", bgBot:"#a6c4a4", badge:null},
+
+  // Row 2
+  {id:5,  name:"Boys Kabli", range:"3–7 Years", price:4290,  colors:["#3a2050","#5a3070"],     bgTop:"#9a7ab8", bgBot:"#7c5c9a", badge:null},
+  {id:6,  name:"Boys Kabli", range:"3–7 Years", price:4290,  colors:["#6a1e30","#501428"],     bgTop:"#a05070", bgBot:"#803858", badge:null},
+  {id:7,  name:"Prince Sherwani Set", range:"3–7 Years", price:6490, colors:["#c49060","#e0b880"],bgTop:"#d4b888",bgBot:"#c0a070",badge:"NEW"},
+  {id:8,  name:"Boys Kabli", range:"3–7 Years", price:3990,  colors:["#c09050","#a87030","#4a3010"],bgTop:"#d4a860",bgBot:"#bc9048",badge:null},
+
+  // Row 3
+  {id:9,  name:"Boys Kabli", range:"2–7 Years", price:4890,  colors:["#3a4a5e","#5a6a80"],     bgTop:"#8898b0", bgBot:"#6878a0", badge:null},
+  {id:10, name:"Prince Sherwani Set", range:"1–7 Years", price:6490, colors:["#2a4050","#1a3040"],bgTop:"#607898",bgBot:"#486880",badge:"NEW"},
+  {id:11, name:"Prince Festive Set", range:"2–7 Years", price:5790, colors:["#204840","#183830"],bgTop:"#407868",bgBot:"#285848",badge:"NEW"},
+  {id:12, name:"Prince Festive Set", range:"2–7 Years", price:5790, colors:["#183048","#102038"],bgTop:"#305878",bgBot:"#204868",badge:"NEW"},
+
+  // Row 4
+  {id:13, name:"Prince Sherwani Set", range:"3–7 Years", price:6490, colors:["#383838","#202020"],bgTop:"#505050",bgBot:"#383838",badge:null},
+  {id:14, name:"Kabli Sherw. Set", range:"3-7 Years",    price:7490, colors:["#101830","#081020"],bgTop:"#283858",bgBot:"#182848",badge:null},
+  {id:15, name:"Boys Kabli", range:"3–7 Years", price:3490,  colors:["#2a3a68","#1a2858"],     bgTop:"#5068a0", bgBot:"#384880", badge:null},
+  {id:16, name:"Boys Kabli", range:"3–7 Years", price:4290,  colors:["#b07820","#906010"],     bgTop:"#c89838", bgBot:"#b08028", badge:null},
+
+  // Row 5
+  {id:17, name:"Boys Kabli", range:"2–7 Years", price:3490,  colors:["#c89858","#a07838"],     bgTop:"#d4b070", bgBot:"#bc9858", badge:null},
+  {id:18, name:"Prince Sherwani Set", range:"1–2 Years", price:6490, colors:["#8a1020","#600810"],bgTop:"#b83040",bgBot:"#902030",badge:"NEW"},
+  {id:19, name:"Prince Festive Set", range:"1–2 Years", price:5790, colors:["#1e4858","#163848"],bgTop:"#3c7080",bgBot:"#2c5870",badge:"NEW"},
+  {id:20, name:"Boys Kabli", range:"3–7 Years", price:3490,  colors:["#4a7878","#386060"],     bgTop:"#709898", bgBot:"#508080", badge:null},
+
+  // Row 6
+  {id:21, name:"Boys Kabli", range:"2–7 Years", price:3990,  colors:["#589898","#407878"],     bgTop:"#78b0b0", bgBot:"#609898", badge:null},
+  {id:22, name:"Prince Sherwani Set", range:"2–7 Years", price:6490, colors:["#5a1818","#380808"],bgTop:"#8a3030",bgBot:"#702020",badge:null},
+  {id:23, name:"Boys Kabli", range:"2–7 Years", price:4290,  colors:["#a09080","#807060"],     bgTop:"#c0b0a0", bgBot:"#a09080", badge:null},
+  {id:24, name:"Boys Kabli", range:"3–7 Years", price:3490,  colors:["#9a9880","#787660"],     bgTop:"#b8b6a0", bgBot:"#9a9880", badge:null},
+
+  // Row 7
+  {id:25, name:"Prince Kabli Set", range:"3–4 Years", price:4890, colors:["#204050","#182e3a","#8a7050"],bgTop:"#305868",bgBot:"#204858",badge:"NEW"},
+  {id:26, name:"Boys Kabli", range:"3–7 Years", price:3490,  colors:["#284858","#1c3848"],     bgTop:"#3a6878", bgBot:"#2a5868", badge:null},
+  {id:27, name:"Boys Kabli", range:"2–7 Years", price:3990,  colors:["#c8a078","#a88060"],     bgTop:"#d8b890", bgBot:"#c0a078", badge:null},
+  {id:28, name:"Boys Kabli", range:"3–7 Years", price:3490,  colors:["#d0c8b0","#b8b090"],     bgTop:"#e0d8c0", bgBot:"#c8c0a8", badge:null},
+
+  // Row 8
+  {id:29, name:"Boys Kabli", range:"3–7 Years", price:3490,  colors:["#283848","#182838"],     bgTop:"#4a6880", bgBot:"#385870", badge:null},
+  {id:30, name:"Boys Kabli", range:"2–7 Years", price:4290,  colors:["#3a5030","#283820"],     bgTop:"#5a7850", bgBot:"#486840", badge:"SALE", salePrice:2990},
+  {id:31, name:"Boys Kabli", range:"3–7 Years", price:3990,  colors:["#c0a880","#a89060"],     bgTop:"#d8c098", bgBot:"#c0a880", badge:null},
+  {id:32, name:"Boys Kabli", range:"3–7 Years", price:4290,  colors:["#987860","#806050"],     bgTop:"#b09878", bgBot:"#988060", badge:null},
+];
+
+let cartCount = 0;
+let activeFilter = {size:'all', minPrice:0, maxPrice:99999};
+
+/* ─── Build one card SVG (boy in kabli outfit) ─── */
+function makeOutfitSVG(bgTop, bgBot, colors) {
+  const shirt = colors[0];
+  const pant  = colors[1] || colors[0];
+  const vest  = colors[2] || null;
+
+  return `<svg viewBox="0 0 320 430" xmlns="http://www.w3.org/2000/svg">
+    <!-- background gradient -->
+    <defs>
+      <linearGradient id="bg${bgTop.replace('#','')}" x1="0" y1="0" x2="0" y2="1">
+        <stop offset="0%" stop-color="${bgTop}"/>
+        <stop offset="100%" stop-color="${bgBot}"/>
+      </linearGradient>
+    </defs>
+    <rect width="320" height="430" fill="url(#bg${bgTop.replace('#','')})"/>
+
+    <!-- shadow on floor -->
+    <ellipse cx="160" cy="422" rx="60" ry="8" fill="rgba(0,0,0,.15)"/>
+
+    <!-- legs / shalwar -->
+    <rect x="113" y="266" width="38" height="148" rx="7" fill="${pant}"/>
+    <rect x="169" y="266" width="38" height="148" rx="7" fill="${pant}"/>
+    <!-- shoe left -->
+    <ellipse cx="132" cy="414" rx="22" ry="9" fill="#1a1a1a"/>
+    <!-- shoe right -->
+    <ellipse cx="188" cy="414" rx="22" ry="9" fill="#1a1a1a"/>
+
+    <!-- kurta body -->
+    <rect x="106" y="150" width="108" height="126" rx="12" fill="${shirt}"/>
+
+    <!-- left sleeve -->
+    <rect x="82" y="156" width="30" height="96" rx="10" fill="${shirt}"/>
+    <!-- right sleeve -->
+    <rect x="208" y="156" width="30" height="96" rx="10" fill="${shirt}"/>
+
+    <!-- left hand -->
+    <ellipse cx="97" cy="255" rx="13" ry="14" fill="#d4a882"/>
+    <!-- right hand -->
+    <ellipse cx="223" cy="255" rx="13" ry="14" fill="#d4a882"/>
+
+    ${vest ? `
+    <!-- vest overlay -->
+    <rect x="114" y="153" width="92" height="112" rx="8" fill="${vest}" opacity=".85"/>
+    <rect x="114" y="153" width="44" height="112" rx="0" fill="${vest}" opacity=".85"/>
+    <!-- vest pattern lines -->
+    <line x1="120" y1="170" x2="196" y2="170" stroke="rgba(255,255,255,.15)" stroke-width="1"/>
+    <line x1="120" y1="185" x2="196" y2="185" stroke="rgba(255,255,255,.15)" stroke-width="1"/>
+    <line x1="120" y1="200" x2="196" y2="200" stroke="rgba(255,255,255,.15)" stroke-width="1"/>
+    <line x1="120" y1="215" x2="196" y2="215" stroke="rgba(255,255,255,.15)" stroke-width="1"/>
+    ` : ''}
+
+    <!-- collar -->
+    <path d="M145 150 L160 172 L175 150" stroke="rgba(255,255,255,.5)" stroke-width="2" fill="none" stroke-linecap="round"/>
+    <!-- button placket -->
+    <line x1="160" y1="172" x2="160" y2="268" stroke="rgba(255,255,255,.22)" stroke-width="1.5" stroke-dasharray="5,4"/>
+    <!-- buttons -->
+    <circle cx="160" cy="188" r="2.5" fill="rgba(255,255,255,.4)"/>
+    <circle cx="160" cy="206" r="2.5" fill="rgba(255,255,255,.4)"/>
+    <circle cx="160" cy="224" r="2.5" fill="rgba(255,255,255,.4)"/>
+    <circle cx="160" cy="242" r="2.5" fill="rgba(255,255,255,.4)"/>
+
+    <!-- kurta bottom hem -->
+    <rect x="106" y="260" width="108" height="14" rx="4" fill="${shirt}" opacity=".7"/>
+
+    <!-- neck -->
+    <rect x="148" y="128" width="24" height="28" rx="5" fill="#d4a882"/>
+    <!-- head -->
+    <ellipse cx="160" cy="96" rx="40" ry="46" fill="#d4a882"/>
+    <!-- ear left -->
+    <ellipse cx="120" cy="96" rx="8" ry="11" fill="#c8946c"/>
+    <!-- ear right -->
+    <ellipse cx="200" cy="96" rx="8" ry="11" fill="#c8946c"/>
+    <!-- hair -->
+    <ellipse cx="160" cy="62" rx="41" ry="34" fill="#1a0e08"/>
+    <rect x="119" y="62" width="82" height="24" fill="#1a0e08"/>
+    <!-- eyes -->
+    <ellipse cx="147" cy="97" rx="6" ry="6.5" fill="white"/>
+    <ellipse cx="173" cy="97" rx="6" ry="6.5" fill="white"/>
+    <circle cx="148" cy="98" r="4" fill="#1a1a1a"/>
+    <circle cx="174" cy="98" r="4" fill="#1a1a1a"/>
+    <circle cx="149.5" cy="96.5" r="1.2" fill="white"/>
+    <circle cx="175.5" cy="96.5" r="1.2" fill="white"/>
+    <!-- eyebrows -->
+    <path d="M140 88 Q147 84 155 87" stroke="#1a0e08" stroke-width="2" fill="none" stroke-linecap="round"/>
+    <path d="M165 87 Q173 84 180 88" stroke="#1a0e08" stroke-width="2" fill="none" stroke-linecap="round"/>
+    <!-- nose -->
+    <path d="M156 104 Q160 110 164 104" stroke="#b87848" stroke-width="1.5" fill="none"/>
+    <!-- smile -->
+    <path d="M150 113 Q160 120 170 113" stroke="#b87848" stroke-width="2" fill="none" stroke-linecap="round"/>
+  </svg>`;
+}
+
+/* ─── Render grid ─── */
+function renderGrid(list) {
+  const grid = document.getElementById('productGrid');
+  grid.innerHTML = '';
+  document.getElementById('resultCount').textContent = `Showing ${list.length} items`;
+
+  if(list.length === 0){
+    grid.innerHTML = '<div style="grid-column:1/-1;text-align:center;padding:60px 20px;color:var(--gray-mid);font-size:14px;letter-spacing:.04em;">No products match your selection.</div>';
+    return;
+  }
+
+  list.forEach((p, i) => {
+    const badge = p.badge
+      ? `<div class="prod-badge badge-${p.badge.toLowerCase()}">${p.badge}</div>`
+      : '';
+
+    const swatches = p.colors.map((c,ci) =>
+      `<div class="sw${ci===0?' active':''}" style="background:${c}" onclick="switchColor(event,this,${p.id})" title="Color ${ci+1}"></div>`
+    ).join('');
+
+    const priceHTML = p.salePrice
+      ? `<span class="price-now">৳ ${p.salePrice.toLocaleString()}.00</span><span class="price-was">৳ ${p.price.toLocaleString()}.00</span>`
+      : `<span class="price-now">৳ ${p.price.toLocaleString()}.00</span>`;
+
+    const card = document.createElement('div');
+    card.className = 'product-card';
+    card.dataset.id = p.id;
+    card.dataset.price = p.salePrice || p.price;
+    card.style.animationDelay = `${(i % 4) * 70}ms`;
+
+    card.innerHTML = `
+      <div class="product-img-wrap" id="imgwrap-${p.id}">
+        ${makeOutfitSVG(p.bgTop, p.bgBot, p.colors)}
+        ${badge}
+        <div class="quick-actions">
+          <button class="qa-btn qa-cart" onclick="addToCart(event,${p.id},'${p.name}',${p.salePrice||p.price})">
+            <svg width="12" height="12" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 0 1-8 0"/></svg>
+            Add to Cart
+          </button>
+          <button class="qa-btn qa-wish" onclick="addToWish(event,${p.id})" title="Wishlist">
+            <svg width="13" height="13" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
+          </button>
+        </div>
+      </div>
+      <div class="product-meta">
+        <div class="product-name">${p.name}</div>
+        <div class="product-size-range">${p.range}</div>
+        <div class="product-price-row">${priceHTML}</div>
+        <div class="swatch-row">${swatches}</div>
+      </div>
+    `;
+    grid.appendChild(card);
+  });
+}
+
+/* ─── Filter logic ─── */
+function applyFilters() {
+  let list = [...PRODUCTS];
+  if(activeFilter.size !== 'all'){
+    list = list.filter(p => p.range.includes(activeFilter.size.replace('Y','').replace('-',' '))
+      || p.range.replace('–','-').includes(activeFilter.size.replace('Y',''))
+    );
+    // simple: show all for "all"
+  }
+  list = list.filter(p => {
+    const pr = p.salePrice || p.price;
+    return pr >= activeFilter.minPrice && pr <= activeFilter.maxPrice;
+  });
+  renderGrid(list);
+}
+
+function filterBySize(btn, size) {
+  document.querySelectorAll('#filterSize .size-chip').forEach(b => b.classList.remove('active'));
+  btn.classList.add('active');
+  activeFilter.size = size;
+  applyFilters();
+}
+function filterByPrice(btn, min, max) {
+  document.querySelectorAll('#filterPrice .price-chip').forEach(b => b.classList.remove('active'));
+  btn.classList.add('active');
+  activeFilter.minPrice = min;
+  activeFilter.maxPrice = max;
+  applyFilters();
+}
+
+function sortProducts(val) {
+  let list = [...PRODUCTS];
+  if(val === 'price-asc')  list.sort((a,b) => (a.salePrice||a.price) - (b.salePrice||b.price));
+  if(val === 'price-desc') list.sort((a,b) => (b.salePrice||b.price) - (a.salePrice||a.price));
+  if(val === 'newest')     list.sort((a,b) => b.id - a.id);
+  renderGrid(list);
+}
+
+/* ─── Filter panel toggle ─── */
+let openPanel = null;
+function toggleFilter(type) {
+  const panelId = type === 'size' ? 'filterSize' : 'filterPrice';
+  const btnId   = type === 'size' ? 'sizeFilterBtn' : 'priceFilterBtn';
+  const panel   = document.getElementById(panelId);
+  const btn     = document.getElementById(btnId);
+  const isOpen  = panel.classList.contains('open');
+
+  // close all
+  document.querySelectorAll('.filter-panel').forEach(p => p.classList.remove('open'));
+  document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('open'));
+
+  if(!isOpen){ panel.classList.add('open'); btn.classList.add('open'); }
+}
+
+/* ─── Swatch switch ─── */
+function switchColor(e, el, id) {
+  e.stopPropagation();
+  el.closest('.swatch-row').querySelectorAll('.sw').forEach(s => s.classList.remove('active'));
+  el.classList.add('active');
+  // Get color index and update SVG bg tint
+  const p = PRODUCTS.find(x => x.id === id);
+  const idx = Array.from(el.closest('.swatch-row').querySelectorAll('.sw')).indexOf(el);
+  if(p && p.colors[idx]){
+    // shift hue of background slightly
+    const wrap = document.getElementById('imgwrap-'+id);
+    wrap.style.filter = `hue-rotate(${idx * 20}deg)`;
+  }
+}
+
+/* ─── Cart / Wishlist ─── */
+function addToCart(e, id, name, price) {
+  e.stopPropagation();
+  cartCount++;
+  document.getElementById('cartCount').textContent = cartCount;
+  showToast(`Added to Cart — ${name} (৳ ${price.toLocaleString()}.00)`);
+}
+function addToWish(e, id) {
+  e.stopPropagation();
+  const btn = e.currentTarget;
+  btn.style.color = '#c0392b';
+  btn.querySelector('svg').style.fill = '#c0392b';
+  showToast('Added to Wish List');
+}
+
+/* ─── Toast ─── */
+function showToast(msg) {
+  const t = document.getElementById('toast');
+  t.textContent = msg;
+  t.classList.add('show');
+  clearTimeout(t._to);
+  t._to = setTimeout(() => t.classList.remove('show'), 2800);
+}
+
+/* ─── Pagination buttons ─── */
+document.querySelectorAll('.pg').forEach(btn => {
+  btn.addEventListener('click', function(){
+    document.querySelectorAll('.pg').forEach(b => b.classList.remove('active'));
+    this.classList.add('active');
+  });
+});
+
+
+function openMobileMenu(){
+  document.getElementById('mobileDrawer').classList.add('open');
+  document.getElementById('mobOverlay').classList.add('open');
+  document.getElementById('hamburger').classList.add('open');
+  document.body.style.overflow='hidden';
+}
+function closeMobileMenu(){
+  document.getElementById('mobileDrawer').classList.remove('open');
+  document.getElementById('mobOverlay').classList.remove('open');
+  document.getElementById('hamburger').classList.remove('open');
+  document.body.style.overflow='';
+}
+function toggleMobSub(id){
+  document.getElementById('mob-'+id).classList.toggle('open');
+}
+
+/* ─── INIT ─── */
+renderGrid(PRODUCTS);
+</script>
+</body>
+</html>

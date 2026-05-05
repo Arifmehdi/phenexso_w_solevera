@@ -71,6 +71,16 @@ class AppServiceProvider extends ServiceProvider
 
         // Share product categories only with specific views
         View::composer(['frontend.products', 'frontend.home', 'frontend.shop', 'website.*'], function ($view) {
+            // Hierarchical categories for the new megamenu
+            $categories = \App\Models\ProductCategory::where('active', true)
+                ->whereNull('parent_id')
+                ->with(['children' => function($query) {
+                    $query->where('active', true);
+                }])
+                ->orderBy('name_en')
+                ->get();
+            
+            // All active categories that have products (for footer/other layouts)
             $productCategories = \App\Models\ProductCategory::where('active', true)
                 ->withCount(['products' => function($query) {
                     $query->where('active', true);
@@ -79,6 +89,7 @@ class AppServiceProvider extends ServiceProvider
                 ->orderBy('name_en')
                 ->get();
             
+            $view->with('categories', $categories);
             $view->with('productCategories', $productCategories);
         });
 

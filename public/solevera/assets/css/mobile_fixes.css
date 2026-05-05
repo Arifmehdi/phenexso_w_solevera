@@ -1,0 +1,82 @@
+@media (max-width:360px) {
+	.lg-heading {
+		font-size: 24px;
+	}
+	.btn {
+		padding: 8px 16px;
+		font-size: 13px;
+	}
+	section {
+		padding: 40px 0;
+	}
+}
+
+/*====================================
+	Global Mobile Responsive Fixes
+=====================================*/
+img {
+	max-width: 100%;
+	height: auto;
+}
+iframe, canvas, video, embed, object {
+	max-width: 100%;
+}
+table {
+	width: 100% !important;
+	display: block;
+	overflow-x: auto;
+	-webkit-overflow-scrolling: touch;
+}
+pre, code {
+	white-space: pre-wrap;
+	word-wrap: break-word;
+}
+input, select, textarea, button {
+	font-size: 16px !important;
+}
+@media (max-width: 767px) {
+	.container {
+		padding-left: 12px;
+		padding-right: 12px;
+	}
+	.row {
+		margin-left: -8px;
+		margin-right: -8px;
+	}
+	[class*="col-"] {
+		padding-left: 8px;
+		padding-right: 8px;
+	}
+	section {
+		padding: 50px 0;
+	}
+	.btn, button, .btn-primary, .btn-secondary, .btn-success, .btn-danger, .btn-warning, .btn-info {
+		min-height: 44px;
+		display: inline-flex;
+		align-items: center;
+		justify-content: center;
+	}
+	input, select, textarea {
+		font-size: 16px !important;
+	}
+	.navbar-toggler {
+		padding: 8px;
+	}
+}
+@media (max-width: 575px) {
+	.container {
+		padding-left: 10px;
+		padding-right: 10px;
+	}
+	.row {
+		margin-left: -5px;
+		margin-right: -5px;
+	}
+	[class*="col-"] {
+		padding-left: 5px;
+		padding-right: 5px;
+	}
+	section {
+		padding: 40px 0;
+	}
+}
